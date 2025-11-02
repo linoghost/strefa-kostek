@@ -1,28 +1,34 @@
-# Baza danych dockera
+# Docker DB
 mysql_data/
 
-# Pliki generowane przez prestę
+# Runtime / cache / logi
 prestashop/var/
 prestashop/app/cache/
 prestashop/app/logs/
 
-# Konfiguracja środowiska (klucze / login do DB)
+# Konfig z danymi dostępowymi
 prestashop/config/settings.inc.php
 
-# Zbędne
+# Instalator Prestashop - po instalacji usuwamy
+prestashop/install/
+
+# Vendor Prestashop
+prestashop/vendor/
+prestashop/modules/*/vendor/
+
+# Cache frontu
+prestashop/themes/*/assets/cache/
+
+# Wyniki kompilacji CSS/JS (tylko jeśli *kompilujecie sami*)
+prestashop/themes/*/assets/css/
+prestashop/themes/*/assets/js/
+
+# Backupy, eksporty, paczki
 *.log
 *.sql
 *.tar
 *.zip
 *.gz
 
-# Cache tematów
-prestashop/themes/*/assets/cache/
-prestashop/themes/*/assets/css/
-prestashop/themes/*/assets/js/
-
-# Composer vendor — jeśli nie robicie custom modułów z composera
-vendor/
-
-# Node build output (jeśli używacie gulp/webpacka)
+# Node build output
 node_modules/
