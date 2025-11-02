@@ -1,0 +1,16 @@
+# Docker
+docker-compose.override.yml
+mysql_data/
+prestashop/var/
+prestashop/vendor/
+prestashop/node_modules/
+prestashop/config/settings.inc.php
+prestashop/install/
+
+# Logs
+prestashop/logs/
+prestashop/cache/
+
+# OS
+.DS_Store
+Thumbs.db
