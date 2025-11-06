@@ -14,3 +14,6 @@ prestashop/cache/
 # OS
 .DS_Store
 Thumbs.db
+
+# konwerter json na csv
+output/
