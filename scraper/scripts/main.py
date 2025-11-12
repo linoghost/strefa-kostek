@@ -14,7 +14,7 @@ MULTI_IMAGE_SEPARATOR = ", "
 # Separator pól CSV (w PL często używa się średnika)
 CSV_DELIMITER = ";"
 # Limit produktów (None = bez limitu)
-LIMIT = 10
+LIMIT = None
 
 # Kolumny CSV zgodne z PrestaShop
 CSV_FIELDS = ["kategoria", "nazwa", "cena", "opis", "zdjecia"]
