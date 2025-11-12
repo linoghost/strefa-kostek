@@ -15,6 +15,6 @@ with open(OUTPUT_CSV, "w", newline="", encoding="utf-8") as f:
     writer.writerow(["Name", "Parent category", "Active"])
     
     for cat in categories:
-        writer.writerow([cat, "Home", 1])
+        writer.writerow([cat, "Produkty", 1])
 
 print(f"✅ Zapisano CSV do: {OUTPUT_CSV}")
