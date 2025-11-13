@@ -1,63 +1,37 @@
-# 🧱 StrefaKostek – PrestaShop (Docker)
+# StrefaKostek – PrestaShop
 
-Projekt odwzorowujący funkcjonalność i wygląd sklepu **StrefaKostek.pl**, zbudowany na platformie **PrestaShop** i uruchamiany w kontenerach **Docker**.
 
-## 📦 Opis projektu
+## Opis projektu
 
-Celem projektu jest przygotowanie środowiska deweloperskiego sklepu opartego o **PrestaShop**, inspirowanego stroną [strefakostek.pl](https://strefa-kostek.pl).  
-Projekt działa w oparciu o **Docker Compose**, co pozwala łatwo uruchomić kompletne środowisko (aplikacja + baza danych) bez ręcznej konfiguracji.
+Celem projektu jest przygotowanie sklepu opartego o PrestaShop, inspirowanego stroną [strefa-kostek.pl](https://strefa-kostek.pl).  
+Projekt działa w oparciu o Docker Compose.
 
-## ⚙️ Wykorzystane oprogramowanie
+## Wykorzystane oprogramowanie
 
-- **PrestaShop:** 1.7  
-- **MySQL:** 5.7 
+- **PrestaShop:** 1.7.8
+- **MySQL:** 5.7
 - **Docker & Docker Compose**  
 
-## 🚀 Uruchomienie projektu (Docker)
+## Uruchomienie projektu
 
-### 1️⃣ Klonowanie repozytorium
+### 1. Klonowanie repozytorium
 ```bash
-git clone https://github.com/<twoj-uzytkownik>/<repozytorium>.git
-cd <repozytorium>
+git clone https://github.com/username/strefa-kostek.git
+cd strefa-kostek
 ```
 
-### 2️⃣ Uruchomienie środowiska
+### 2. Uruchomienie środowiska
 ```bash
-docker compose up -d
+docker-compose up -d
 ```
-Aplikacja będzie dostępna pod adresem:  
-👉 [http://localhost:8080](http://localhost:8080)
+Strona dostępna będzie pod adresem [http://localhost:8080](http://localhost:8080)
 
-### 3️⃣ Zarządzanie kontenerami
-| Komenda | Opis |
-|----------|------|
-| `docker compose ps` | lista aktywnych kontenerów |
-| `docker compose logs -f` | podgląd logów |
-| `docker compose down` | zatrzymanie środowiska |
-| `docker compose down -v` | zatrzymanie i usunięcie wolumenów (czyści bazę danych) |
+## Zespół projektowy
 
-## 🧑‍💻 Deweloperka
-
-### Czyszczenie cache PrestaShop
-```bash
-docker compose exec prestashop rm -rf var/cache/*
-```
-
-### Instalacja zależności
-```bash
-docker compose exec prestashop composer install
-```
-
-## 👥 Zespół projektowy
-
-| Imię i nazwisko | Index |
+| Imię i nazwisko | Indeks |
 |-----------------|------|
 | Julia Kryszczuk | 197753 |
 | Jeremi Nowak | 197611 |
 | Michał Mrowicki | 197982 |
 | Karol Banach | 197912 |
 
-## 🔐 Licencja
-
-Projekt tworzony **w celach edukacyjnych**.  
-Nie jest powiązany z oficjalnym sklepem **StrefaKostek.pl** ani jego właścicielem.
