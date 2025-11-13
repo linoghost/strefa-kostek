@@ -9,13 +9,9 @@ Projekt działa w oparciu o **Docker Compose**, co pozwala łatwo uruchomić kom
 
 ## ⚙️ Wykorzystane oprogramowanie
 
-- **PrestaShop:** 8.x  
-- **PHP:** 8.1+  
-- **MySQL:** 8.0  
-- **Apache (w kontenerze)**  
+- **PrestaShop:** 1.7  
+- **MySQL:** 5.7 
 - **Docker & Docker Compose**  
-- **Composer 2.x**  
-- **Node.js / npm** *(opcjonalnie – do kompilacji frontu)*
 
 ## 🚀 Uruchomienie projektu (Docker)
 
