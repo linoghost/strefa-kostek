@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 use PrestaShop\PrestaShop\Adapter\StockManager;
 
 require_once dirname(__FILE__) . '/../../config/config.inc.php';
@@ -8,7 +11,7 @@ require_once dirname(__FILE__) . '/../../init.php';
 ID produktów które mają być niedostępne:
 "niedostępne" = widoczne ale nie mogące być dodane do koszyka
 */
-$products_to_disable = [1, 2, 3];  //jeremi musisz dopisać id bo ja nie wiem skąd je wziąć
+$products_to_disable = [2204];  //jeremi musisz dopisać id bo ja nie wiem skąd je wziąć
 
 /*
 metoda `setProductOutOfStock` jest częścią PrestaShop (`StockManager`)
