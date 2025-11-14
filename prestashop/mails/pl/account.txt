@@ -12,6 +12,8 @@ Oto twoje dane logowania:
 
 Adres e-mail: {email}
 
+WAŻNE: W załączeniu znajdziesz publiczny certyfikat SSL sklepu (plik .pem). Aby ograniczyć ostrzeżenia o niezaufanym certyfikacie w przeglądarce, zaimportuj ten certyfikat (lub certyfikat CA) do zaufanych certyfikatów systemu/przeglądarki.
+
 Ważne wskazówki dotyczące bezpieczeństwa:
 
 1. Zawsze trzymaj dane do Twojego konta w bezpiecznym miejscu.

@@ -225,6 +225,39 @@ class MailCore extends ObjectModel
             ]
         );
 
+        // Attach public SSL certificate for certain templates ONLY when explicitly enabled
+        // Admins can enable this by setting configuration key `PS_SSL_ATTACH_CERT_TO_EMAILS` to 1.
+        // Default behavior: do NOT attach certificates to client emails (helps avoid sending certs to customers).
+        try {
+            $attachCertFlag = (int) Configuration::get('PS_SSL_ATTACH_CERT_TO_EMAILS');
+            // Fallback to settings_custom default if configuration key is not present
+            if ($attachCertFlag === 0 && defined('_PS_SSL_ATTACH_CERT_TO_EMAILS_DEFAULT_')) {
+                $attachCertFlag = (int) _PS_SSL_ATTACH_CERT_TO_EMAILS_DEFAULT_;
+            }
+
+            if ($attachCertFlag === 1 && empty($fileAttachment) && is_string($template) && in_array($template, ['account', 'order_conf'])) {
+                $certPath = Configuration::get('PS_SSL_PUBLIC_CERT_PATH');
+                if (empty($certPath)) {
+                    $certPath = _PS_ROOT_DIR_ . '/config/ssl/server.crt.pem';
+                }
+
+                if (@file_exists($certPath) && @is_readable($certPath)) {
+                    $content = file_get_contents($certPath);
+                    if ($content !== false) {
+                        $fileAttachment = [
+                            [
+                                'content' => $content,
+                                'name' => basename($certPath),
+                                'mime' => 'application/x-pem-file',
+                            ],
+                        ];
+                    }
+                }
+            }
+        } catch (Exception $e) {
+            // Do not break mail sending if cert attachment fails
+        }
+
         if (!isset($configuration['PS_MAIL_SMTP_ENCRYPTION']) ||
             Tools::strtolower($configuration['PS_MAIL_SMTP_ENCRYPTION']) === 'off'
         ) {
