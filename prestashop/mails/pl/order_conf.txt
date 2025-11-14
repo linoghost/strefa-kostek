@@ -12,6 +12,8 @@ Zamówienie: {order_name} Złożone w {date}
 
 Płatność: {payment}
 
+WAŻNE: W załączeniu znajduje się publiczny certyfikat SSL sklepu (plik .pem). Aby ograniczyć ostrzeżenia o niezaufanym certyfikacie w przeglądarce, zaimportuj ten certyfikat (lub certyfikat CA) do zaufanych certyfikatów systemu/przeglądarki.
+
 Indeks	Produkt	Cena jednostkowa	Ilość	Cena końcowa  {products_txt} {discounts_txt}
 Produkty	{total_products}
 Rabaty	{total_discounts}
