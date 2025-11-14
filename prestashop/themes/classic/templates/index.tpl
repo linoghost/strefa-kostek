@@ -24,8 +24,14 @@
  *}
 {extends file='page.tpl'}
 
+
     {block name='page_content_container'}
       <section id="content" class="page-home">
+        {if isset($layout)}
+            {$layout}
+        {else}
+            Layout nie jest ustawiony
+        {/if}
         {block name='page_content_top'}{/block}
 
         {block name='page_content'}
