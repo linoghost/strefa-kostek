@@ -1,16 +1,103 @@
-# Docker
-docker-compose.override.yml
+# Docker DB
 mysql_data/
+
+# Runtime / cache / logi
 prestashop/var/
-prestashop/vendor/
-prestashop/node_modules/
+prestashop/app/cache/
+prestashop/app/logs/
+
+# Konfig z danymi dostępowymi
 prestashop/config/settings.inc.php
+
+# Instalator Prestashop - po instalacji usuwamy
 prestashop/install/
 
-# Logs
-prestashop/logs/
-prestashop/cache/
+# Vendor Prestashop
+prestashop/vendor/
+prestashop/modules/*/vendor/
 
-# OS
+# Cache frontu
+prestashop/themes/*/assets/cache/
+
+# Wyniki kompilacji CSS/JS (tylko jeśli *kompilujecie sami*)
+prestashop/themes/*/assets/css/
+prestashop/themes/*/assets/js/
+
+# Backupy, eksporty, paczki
+*.log
+*.sql
+*.tar
+*.zip
+*.gz
+
+# Node build output
+node_modules/
+
+# scrper
+.scraper/.idea/
+scraper/output/
+*.json:Zone.Identifier
+.vscode/
+
+/cache/
+!cache/index.php
+
+/logs/
+/download/
+/upload/
+!upload/index.php
+
+/var/
+!var/.htaccess
+!var/index.php
+
+# --- zdjęcia produktów i kategorii ---
+/img/c/
+/img/p/
+/img/tmp/
+/img/tmp/*
+
+# Pozwól zachować pliki kontrolne
+!img/c/index.php
+!img/p/index.php
+!img/tmp/index.php
+
+# Stare miniatury
+/img/fr/
+/img/co/
+/img/os/
+/img/scenes/
+
+# --- moduły ---
+/modules/*/cache/
+/modules/*/mails/
+/modules/*/translations/
+/modules/*/views/img/
+/modules/*/views/templates/admin/cache/
+/modules/*/logs/
+
+# --- kompilowane szablony ---
+/themes/*/cache/
+/themes/*/templates_c/
+
+# --- pliki tymczasowe ---
+/tools/smarty/compile/
+/tools/smarty/cache/
+
+# --- vendor (jeśli używasz composer install na produkcji) ---
+/vendor/
+
+# --- System ---
+/*.log
+*.log
+
+# --- OS ---
 .DS_Store
 Thumbs.db
+
+# --- IDE ---
+.idea/
+*.iml
+.vscode/
+
+
