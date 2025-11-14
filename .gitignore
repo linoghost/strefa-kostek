@@ -34,7 +34,9 @@ prestashop/themes/*/assets/js/
 node_modules/
 
 # scrper
-*.json:Zone.Identifier
-.idea/
+.scraper/.idea/
 scraper/output/
+*.json:Zone.Identifier
+.vscode/
+
 
