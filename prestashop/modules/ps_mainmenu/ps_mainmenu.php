@@ -559,6 +559,9 @@ class Ps_MainMenu extends Module implements WidgetInterface
         ]);
 
         $menu_items = $this->getMenuItems();
+        $menu_items = array_filter($menu_items, function ($item) {
+    return strpos($item, 'CAT3') === 0;
+});
         $id_lang = (int) $this->context->language->id;
         $id_shop = (int) Shop::getContextShopID();
 

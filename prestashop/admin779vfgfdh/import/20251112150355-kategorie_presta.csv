@@ -1,0 +1,60 @@
+﻿ID;Name;Parent;Active;Link_rewrite;Meta_title;Meta_keywords;Meta_description
+1;Produkty;;1;produkty;Produkty;Produkty;Produkty
+2;Klasyczne kostki;1;1;klasyczne-kostki;Klasyczne kostki;Klasyczne kostki;Klasyczne kostki
+3;Układanki;1;1;ukladanki;Układanki;Układanki;Układanki
+4;Akcesoria;1;1;akcesoria;Akcesoria;Akcesoria;Akcesoria
+5;Hobby;1;1;hobby;Hobby;Hobby;Hobby
+6;Naklejki;1;1;naklejki;Naklejki;Naklejki;Naklejki
+7;Outlet;1;1;outlet;Outlet;Outlet;Outlet
+8;Smary;1;1;smary;Smary;Smary;Smary
+9;Timery;4;1;timery;Timery;Timery;Timery
+10;Maty;4;1;maty;Maty;Maty;Maty
+11;Zestaw Mata + Timer;4;1;zestaw-mata-timer;Zestaw Mata + Timer;Zestaw Mata + Timer;Zestaw Mata + Timer
+12;Podstawki;4;1;podstawki;Podstawki;Podstawki;Podstawki
+13;Woreczki;4;1;woreczki;Woreczki;Woreczki;Woreczki
+14;Sety konstrukcyjne;4;1;sety-konstrukcyjne;Sety konstrukcyjne;Sety konstrukcyjne;Sety konstrukcyjne
+15;Blindfold;4;1;blindfold;Blindfold;Blindfold;Blindfold
+16;Inne;4;1;inne;Inne;Inne;Inne
+17;Części zamienne;4;1;czesci-zamienne;Części zamienne;Części zamienne;Części zamienne
+18;Odzież;4;1;odziez;Odzież;Odzież;Odzież
+19;Torby;4;1;torby;Torby;Torby;Torby
+20;2x2x2;2;1;2x2x2;2x2x2;2x2x2;2x2x2
+21;3x3x3;2;1;3x3x3;3x3x3;3x3x3;3x3x3
+22;4x4x4;2;1;4x4x4;4x4x4;4x4x4;4x4x4
+23;5x5x5;2;1;5x5x5;5x5x5;5x5x5;5x5x5
+24;6x6x6;2;1;6x6x6;6x6x6;6x6x6;6x6x6
+25;7x7x7;2;1;7x7x7;7x7x7;7x7x7;7x7x7
+26;8x8x8;2;1;8x8x8;8x8x8;8x8x8;8x8x8
+27;9x9x9;2;1;9x9x9;9x9x9;9x9x9;9x9x9
+28;10x10x10;2;1;10x10x10;10x10x10;10x10x10;10x10x10
+29;11x11x11;2;1;11x11x11;11x11x11;11x11x11;11x11x11
+30;12x12x12;2;1;12x12x12;12x12x12;12x12x12;12x12x12
+31;13x13x13;2;1;13x13x13;13x13x13;13x13x13;13x13x13
+32;14x14 - 21x21;2;1;14x14-21x21;14x14 - 21x21;14x14 - 21x21;14x14 - 21x21
+33;Speedstacking;5;1;speedstacking;Speedstacking;Speedstacking;Speedstacking
+34;Neocube;5;1;neocube;Neocube;Neocube;Neocube
+35;Pen Spinning;5;1;pen-spinning;Pen Spinning;Pen Spinning;Pen Spinning
+36;Fingerboard;5;1;fingerboard;Fingerboard;Fingerboard;Fingerboard
+37;Yoyo;5;1;yoyo;Yoyo;Yoyo;Yoyo
+38;Układanki logiczne metalowe;5;1;ukladanki-logiczne-metalowe;Układanki logiczne metalowe;Układanki logiczne metalowe;Układanki logiczne metalowe
+39;Układanki logiczne drewniane;5;1;ukladanki-logiczne-drewniane;Układanki logiczne drewniane;Układanki logiczne drewniane;Układanki logiczne drewniane
+40;Inne;5;1;inne;Inne;Inne;Inne
+41;Pyraminx;3;1;pyraminx;Pyraminx;Pyraminx;Pyraminx
+42;Megaminx;3;1;megaminx;Megaminx;Megaminx;Megaminx
+43;Skewb;3;1;skewb;Skewb;Skewb;Skewb
+44;Square-1;3;1;square-1;Square-1;Square-1;Square-1
+45;Mirror;3;1;mirror;Mirror;Mirror;Mirror
+46;Gear;3;1;gear;Gear;Gear;Gear
+47;Zmiennokształtne;3;1;zmiennoksztaltne;Zmiennokształtne;Zmiennokształtne;Zmiennokształtne
+48;Kuboidy;3;1;kuboidy;Kuboidy;Kuboidy;Kuboidy
+49;Pyra_Mastermorphix;3;1;pyra-mastermorphix;Pyra_Mastermorphix;Pyra_Mastermorphix;Pyra_Mastermorphix
+50;Breloczki;3;1;breloczki;Breloczki;Breloczki;Breloczki
+51;Kolekcjonerskie;3;1;kolekcjonerskie;Kolekcjonerskie;Kolekcjonerskie;Kolekcjonerskie
+52;Magic;3;1;magic;Magic;Magic;Magic
+53;Snake;3;1;snake;Snake;Snake;Snake
+54;Figurki;3;1;figurki;Figurki;Figurki;Figurki
+55;Clock;3;1;clock;Clock;Clock;Clock
+56;Fidget;3;1;fidget;Fidget;Fidget;Fidget
+57;Inne;3;1;inne;Inne;Inne;Inne
+58;Zestawy;3;1;zestawy;Zestawy;Zestawy;Zestawy
+59;Klotski+;3;1;klotski;Klotski+;Klotski+;Klotski+

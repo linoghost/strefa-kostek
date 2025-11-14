@@ -1,15 +1,44 @@
-# Docker
-docker-compose.override.yml
+# Docker DB
 mysql_data/
+
+# Runtime / cache / logi
 prestashop/var/
-prestashop/vendor/
-prestashop/node_modules/
+prestashop/app/cache/
+prestashop/app/logs/
+
+# Konfig z danymi dostępowymi
 prestashop/config/settings.inc.php
+
+# Instalator Prestashop - po instalacji usuwamy
 prestashop/install/
 
-# Logs
-prestashop/logs/
-prestashop/cache/
+# Vendor Prestashop
+prestashop/vendor/
+prestashop/modules/*/vendor/
+
+# Cache frontu
+prestashop/themes/*/assets/cache/
+
+# Wyniki kompilacji CSS/JS (tylko jeśli *kompilujecie sami*)
+prestashop/themes/*/assets/css/
+prestashop/themes/*/assets/js/
+
+# Backupy, eksporty, paczki
+*.log
+*.sql
+*.tar
+*.zip
+*.gz
+
+# Node build output
+node_modules/
+
+# scrper
+.scraper/.idea/
+scraper/output/
+*.json:Zone.Identifier
+.vscode/
+
 
 # OS
 .DS_Store

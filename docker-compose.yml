@@ -20,7 +20,7 @@ services:
 
   mysql:
     image: mysql:5.7
-    container_name: prestashop_mysql
+    container_name: mysql
     environment:
       MYSQL_ROOT_PASSWORD: example
       MYSQL_DATABASE: prestashop
@@ -30,3 +30,4 @@ services:
 
 volumes:
   mysql_data:
+
