@@ -1,13 +1,13 @@
 <?php
-use PrestaShop\PrestaShop\Adapter\StockManager;
 use PrestaShop\PrestaShop\Adapter\Entity\Product;
+use PrestaShop\PrestaShop\Adapter\Entity\StockAvailable;
 
 require_once dirname(__FILE__) . '/../../config/config.inc.php';
 require_once dirname(__FILE__) . '/../../init.php';
 
 $max_quantity = 10;
 
-// Pobranie wszystkich produktów
+// Pobranie wszystkich produktów w sklepie
 $all_products = Product::getProducts(
     (int) Context::getContext()->language->id,
     0,
@@ -16,21 +16,17 @@ $all_products = Product::getProducts(
     'ASC'
 );
 
-
 foreach ($all_products as $product) {
-    $id_product = $product['id_product'];
+    $id_product = (int) $product['id_product'];
 
-    // Pobierz aktualną ilość
-    $current_quantity = StockManager::getStockAvailable($id_product, 0);
+    // Pobierz aktualną ilość produktu
+    $current_quantity = StockAvailable::getQuantityAvailableByProduct($id_product);
 
     // Jeśli więcej niż 10, ustaw na 10
     if ($current_quantity > $max_quantity) {
-        StockManager::updateQuantity($id_product, 0, $max_quantity);
-        echo "Produkt $id_product: ilość zmieniona z $current_quantity na $max_quantity.\n";
+        StockAvailable::setQuantity($id_product, 0, $max_quantity);
+        echo "Produkt $id_product: ilość zmniejszona z $current_quantity do $max_quantity.\n";
     } else {
-        echo "Produkt $id_product: ilość ($current_quantity) OK.\n";
+        echo "Produkt $id_product: ilość OK ($current_quantity).\n";
     }
 }
-
-
-

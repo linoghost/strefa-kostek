@@ -1,25 +1,19 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-use PrestaShop\PrestaShop\Adapter\StockManager;
-use PrestaShop\PrestaShop\Adapter\Entity\Product;
+use PrestaShop\PrestaShop\Adapter\Entity\StockAvailable;
 
 require_once dirname(__FILE__) . '/../../config/config.inc.php';
 require_once dirname(__FILE__) . '/../../init.php';
 
-// ID produktów, które mają być niedostępne do kupienia
+// Lista ID produktów, które mają być niedostępne
 $products_to_disable = [2204];
 
 foreach ($products_to_disable as $id_product) {
-    // Pobranie dostępności produktu
-    $stock = StockManager::getStockAvailable($id_product, 0);
 
-    // Ustaw ilość = 0
-    StockManager::updateQuantity($id_product, 0, 0);
+    // Ustaw stan magazynowy na 0
+    StockAvailable::setQuantity($id_product, 0, 0);
 
-    // Zablokuj możliwość zamawiania
-    StockManager::setProductOutOfStock($id_product, 0);
+    // Zablokuj możliwość zakupu brakującego produktu
+    StockAvailable::setOutOfStock($id_product, 0);
 
     echo "Produkt $id_product ustawiony jako niedostępny.\n";
 }
