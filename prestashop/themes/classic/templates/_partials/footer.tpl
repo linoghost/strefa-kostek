@@ -29,9 +29,9 @@
     {/block}
   </div>
 </div>
-<div class="footer-container">
+<div class="footer-container footer-columns">
   <div class="container">
-    <div class="row">
+    <div class="row footer-flex">
       {block name='hook_footer'}
         {hook h='displayFooter'}
       {/block}

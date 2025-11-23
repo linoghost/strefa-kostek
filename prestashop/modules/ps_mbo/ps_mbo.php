@@ -43,7 +43,7 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 class ps_mbo extends Module
 {
 
-    const VERSION = '3.2.1';
+    const VERSION = '3.3.1';
     const TABS_WITH_RECOMMENDED_MODULES_BUTTON = [
         'AdminOrders', // Orders> Orders
         'AdminInvoices', // Orders > Invoices
@@ -177,7 +177,7 @@ class ps_mbo extends Module
     public function __construct()
     {
         $this->name = 'ps_mbo';
-        $this->version = '3.2.1';
+        $this->version = '3.3.1';
         $this->author = 'PrestaShop';
         $this->tab = 'administration';
         $this->module_key = '6cad5414354fbef755c7df4ef1ab74eb';
