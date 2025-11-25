@@ -1,7 +1,6 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-import time
 
 
 class CartPage:
@@ -22,12 +21,11 @@ class CartPage:
     
     def __init__(self, driver):
         self.driver = driver
-        self.wait = WebDriverWait(self.driver, 10)
+        self.wait = WebDriverWait(self.driver, 5)
     
     def navigate_to_cart(self, base_url):
         """Przejdź na stronę koszyka"""
         self.driver.get(f"{base_url}/index.php?controller=cart")
-        time.sleep(1)
     
     def click_cart_icon(self):
         """Kliknij ikonę koszyka"""
@@ -35,7 +33,6 @@ class CartPage:
             EC.element_to_be_clickable(self.CART_ICON)
         )
         cart_icon.click()
-        time.sleep(1)
     
     def get_cart_products(self):
         """Pobierz liczbę produktów w koszyku"""
@@ -103,3 +100,27 @@ class CartPage:
             return total
         except:
             return "N/A"
+    
+    def remove_product_from_cart(self, product_index):
+        """Usuń produkt z koszyka"""
+        products = self.get_cart_products()
+        if product_index >= len(products):
+            raise Exception(f"Produkt z indeksem {product_index} nie istnieje w koszyku")
+        
+        product = products[product_index]
+        try:
+            remove_btn = product.find_element(By.CSS_SELECTOR, "a[data-id-product], .remove, .delete")
+            remove_btn.click()
+            self.wait.until(EC.staleness_of(product))
+        except Exception as e:
+            raise Exception(f"Nie udało się usunąć produktu: {str(e)}")
+    
+    def proceed_to_checkout(self):
+        """Przejdź do kasy"""
+        try:
+            checkout_btn = self.wait.until(
+                EC.element_to_be_clickable(self.CHECKOUT_BUTTON)
+            )
+            checkout_btn.click()
+        except Exception as e:
+            raise Exception(f"Nie znaleziono przycisku checkout: {str(e)}")

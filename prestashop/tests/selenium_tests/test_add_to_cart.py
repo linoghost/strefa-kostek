@@ -81,13 +81,11 @@ class TestAddProductsToCart:
                     "quantity": qty
                 })
                 print(f"✓ Dodano: '{product_name}' x{qty}")
-                time.sleep(0.5)
             except Exception as e:
                 print(f"✗ Błąd przy dodawaniu produktu {idx}: {str(e)}")
         
         # === KATEGORIA 2 ===
-        home_page.navigate(base_url)  # Wróć na stronę główną
-        time.sleep(1)
+        home_page.navigate(base_url)
         home_page.click_category(second_category_name)
         
         # Pobierz dostępne produkty z kategorii 2
@@ -105,7 +103,6 @@ class TestAddProductsToCart:
                     "quantity": qty
                 })
                 print(f"✓ Dodano: '{product_name}' x{qty}")
-                time.sleep(0.5)
             except Exception as e:
                 print(f"✗ Błąd przy dodawaniu produktu {idx}: {str(e)}")
         

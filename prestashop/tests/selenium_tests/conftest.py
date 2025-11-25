@@ -12,15 +12,15 @@ def driver():
     Fixture do inicjalizacji i sprzątania webdrivera Chrome
     """
     chrome_options = Options()
-    chrome_options.add_argument("--headless=new")  # Uncomment dla trybu bez GUI
+    # chrome_options.add_argument("--headless")  # Uncomment dla trybu bez GUI
     chrome_options.add_argument("--no-sandbox")
     chrome_options.add_argument("--disable-dev-shm-usage")
-    #chrome_options.add_argument("--disable-blink-features=AutomationControlled")
+    chrome_options.add_argument("--disable-blink-features=AutomationControlled")
     
     service = Service(ChromeDriverManager().install())
     driver = webdriver.Chrome(service=service, options=chrome_options)
-    #driver.implicitly_wait(10)
-    #driver.maximize_window()
+    driver.implicitly_wait(3)
+    driver.maximize_window()
     
     yield driver
     
@@ -33,4 +33,4 @@ def base_url():
     """
     URL localhost dla PrestaShopa
     """
-    return "http://localhost:8080"
+    return "http://localhost"

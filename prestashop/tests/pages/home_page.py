@@ -2,7 +2,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
-import time
+import random
 
 
 class HomePage:
@@ -19,45 +19,19 @@ class HomePage:
     
     def __init__(self, driver):
         self.driver = driver
-        self.wait = WebDriverWait(self.driver, 10)
+        self.wait = WebDriverWait(self.driver, 5)
         self.actions = ActionChains(self.driver)
     
     def navigate(self, base_url):
         """Przejdź na stronę główną"""
         self.driver.get(base_url)
-        time.sleep(2)
     
-    #def get_categories(self):
-        """Pobierz listę dostępnych kategorii"""
-        #categories = self.wait.until(
-         #   EC.presence_of_all_elements_located(self.CATEGORIES_MENU)
-        #)
-        #return categories
     def get_categories(self):
-        """
-        Pobiera listę kategorii z menu — w tym PODKATEGORIE z popovera PrestaShop.
-        """
-        # 1. Znajdź główną kategorię (PRODUKTY)
-        main_category = self.wait.until(
-            EC.presence_of_element_located((By.CSS_SELECTOR, "#top-menu > li"))
+        """Pobierz listę dostępnych kategorii"""
+        categories = self.wait.until(
+            EC.presence_of_all_elements_located(self.CATEGORIES_MENU)
         )
-
-        # 2. Najechanie myszką aby otworzyć menu
-        self.actions.move_to_element(main_category).perform()
-
-        # 3. Czekanie aż rozwinie się popover
-        popover_selector = (By.CSS_SELECTOR, "#top-menu .popover ul li a")
-        self.wait.until(EC.visibility_of_element_located(popover_selector))
-
-        # 4. Pobranie podkategorii z rozwiniętego menu
-        subcategories = self.driver.find_elements(*popover_selector)
-
-        # Jeżeli nie ma podkategorii → zwróć tylko główną
-        if not subcategories:
-            return [main_category]
-
-        return subcategories
-
+        return categories
     
     def click_category(self, category_name):
         """Kliknij na wybraną kategorię"""
@@ -65,9 +39,8 @@ class HomePage:
         for category in categories:
             if category_name.lower() in category.text.lower():
                 self.actions.move_to_element(category).perform()
-                time.sleep(0.5)
                 category.click()
-                time.sleep(2)
+                self.wait.until(EC.presence_of_all_elements_located(self.PRODUCT_ITEM))
                 return
         raise Exception(f"Kategoria '{category_name}' nie znaleziona")
     
@@ -111,13 +84,11 @@ class HomePage:
         
         # Hover na produkcie żeby pokazać przycisk Add to Cart
         self.actions.move_to_element(product).perform()
-        time.sleep(0.5)
         
         # Szukaj przycisku Add to Cart w produkcie
         try:
             add_btn = product.find_element(By.CSS_SELECTOR, ".add-to-cart, .add_to_cart")
             self.actions.move_to_element(add_btn).perform()
-            time.sleep(0.3)
             add_btn.click()
         except:
             # Alternatywne szukanie
@@ -128,7 +99,6 @@ class HomePage:
         if quantity > 1:
             self._set_product_quantity(quantity)
         
-        time.sleep(1)
         return product_name
     
     def _set_product_quantity(self, quantity):
@@ -139,3 +109,35 @@ class HomePage:
             qty_input.send_keys(str(quantity))
         except:
             pass
+    
+    def search_product(self, product_name):
+        """Szukaj produktu po nazwie"""
+        search_input = self.wait.until(
+            EC.presence_of_element_located(self.SEARCH_INPUT)
+        )
+        search_input.clear()
+        search_input.send_keys(product_name)
+        search_button = self.driver.find_element(*self.SEARCH_BUTTON)
+        search_button.click()
+        self.wait.until(EC.presence_of_all_elements_located(self.PRODUCT_ITEM))
+    
+    def add_random_product_from_search(self):
+        """Dodaj losowy produkt ze znalezionych"""
+        products = self.get_products()
+        if not products:
+            raise Exception("Nie znaleziono produktów")
+        
+        random_product = random.choice(products)
+        product_name = self.get_product_name(random_product)
+        
+        self.actions.move_to_element(random_product).perform()
+        
+        try:
+            add_btn = random_product.find_element(By.CSS_SELECTOR, ".add-to-cart, .add_to_cart")
+            self.actions.move_to_element(add_btn).perform()
+            add_btn.click()
+        except:
+            add_btn = random_product.find_element(By.CSS_SELECTOR, "a[data-id-product]")
+            add_btn.click()
+        
+        return product_name
